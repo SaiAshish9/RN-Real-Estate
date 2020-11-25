@@ -12,7 +12,8 @@
   "dependencies": {
     "react": "16.13.1",
     "react-native": "0.63.3",
-    "react-native-bootsplash": "^3.1.1"
+    "react-native-bootsplash": "^3.1.1",
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "@babel/core": "7.12.8",
@@ -26,5 +27,8 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "resolutions": {
+    "styled-components": "^5"
   }
 }
