@@ -1,0 +1,32 @@
+1. react-native-bootsplash
+
+https://github.com/zoontek/react-native-bootsplash
+
+Android:
+
+npm install --save react-native-bootsplash
+
+1. AndroidManifest.xml   
+// * .MainActivity add android:exported="true" 
+2. res/values/styles.xml
+3. MainActivity.java
+
+npx react-native generate-bootsplash assets/images/splash/splash.png
+
+android:gravity = "fill"
+drawable/bootsplash.xml
+
+// doesn't worked
+nano $HOME/.bashrc aggregate the follow line
+export ANDROID_HOME=$HOME/Android/Sdk
+export ANDROID_SDK_ROOT=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+source $HOME/.bashrc
+echo $ANDROID_SDK_ROOT
+local.properties
+sdk.dir = /home/saiashish9/Android/Sdk
+
+
+IOS:
+
