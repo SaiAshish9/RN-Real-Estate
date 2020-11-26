@@ -29,5 +29,12 @@ sdk.dir = /home/saiashish9/Android/Sdk
 
 yarn add styled-components
 
+2. npm install --save react-native-vector-icons
+react-native link react-native-vector-icons
+
+android/app/src/main/res/values/styles.xml
+<item name="android:colorControlActivated">#FF0000</item>
+<item name="android:textColorHighlight">#FF9999</item>
+
 IOS:
 
