@@ -8,7 +8,7 @@ const Input = styled.TextInput`
   border-radius: 15px;
 `;
 
-const TextInput = ({text,color="#c2c3c5",style}) => {
+const TextInput = ({text, color = '#c2c3c5', style,inverted}) => {
   return (
     <Input style={{...style}} placeholder={text} placeholderTextColor={color} />
   );

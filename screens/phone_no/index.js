@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import TextInput from '../../components/input';
 import Btn from '../../components/btn';
+import {HighlightedText, SmallText} from '../styles';
 
 const {width, height} = Dimensions.get('window');
 
@@ -17,19 +18,7 @@ const Card = styled.View`
   text-align: left;
 `;
 
-const HighlightedText = styled.Text`
-  font-weight: bold;
-  font-size: 30px;
-  color: black;
-  margin-bottom: 7px;
-`;
-
-const SmallText = styled.Text`
-  font-size: 17px;
-  color: black;
-`;
-
-const Phone = () => {
+const Phone = ({navigation}) => {
   return (
     <View
       style={{
@@ -57,7 +46,13 @@ const Phone = () => {
           }}
           text="Enter Phone Number"
         />
-        <Btn text="Next" style={{marginVertical: 20}} />
+        <Btn
+          onPress={() => {
+            navigation.push('verification');
+          }}
+          text="Next"
+          style={{marginVertical: 20}}
+        />
       </Card>
     </View>
   );

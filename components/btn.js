@@ -13,9 +13,9 @@ const Btn = styled.TouchableOpacity`
   border-radius: 18px;
 `;
 
-const Button = ({text,style}) => {
+const Button = ({text,style,...props}) => {
   return (
-    <Btn style={{...style}} activeOpacity={0.8}>
+    <Btn {...props} style={{...style}} activeOpacity={0.8}>
       <Text style={{color: '#fff', fontWeight: 'bold'}}>{text}</Text>
     </Btn>
   );
