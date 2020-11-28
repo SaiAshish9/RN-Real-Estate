@@ -8,7 +8,7 @@ import Btn from '../components/btn';
 
 const {height, width} = Dimensions.get('window');
 
-const UserDetails = ({navigation}) => {
+const PhoneVerification = ({navigation}) => {
   return (
     <View
       style={{
@@ -27,49 +27,49 @@ const UserDetails = ({navigation}) => {
           <Icon name="arrow-back-outline" size={32} />
         </TouchableOpacity>
         <HighlightedText style={{marginVertical: 10}}>
-          Enter your details to signup
+          Phone Verification
         </HighlightedText>
+        <SmallText style={{fontSize: 14}}>
+          A verification email has been sent to
+        </SmallText>
+        <SmallText style={{fontSize: 14}}>your entered phone number.</SmallText>
         <TextInput
+          inverted
           style={{
             marginTop: 20,
           }}
-          text="First Name"
+          text="Enter Code"
         />
-        <TextInput
+        <View
           style={{
             marginTop: 20,
-          }}
-          text="Last Name"
-        />
-        <TextInput
-          style={{
-            marginTop: 20,
-          }}
-          text="Phone Number"
-        />
-        <TextInput
-          style={{
-            marginTop: 20,
-          }}
-          text="Email"
-        />
-        <TextInput
-          style={{
-            marginTop: 20,
-          }}
-          text="Address"
-        />
+            display: 'flex',
+            flexDirection: 'row',
+          }}>
+          <SmallText style={{fontSize: 14}}>Didn't receive code?</SmallText>
+          <TouchableOpacity>
+            <SmallText
+              style={{
+                marginLeft: 6,
+                fontWeight: 'bold',
+                fontSize: 14,
+                color: '#4479fa',
+              }}>
+              Resend
+            </SmallText>
+          </TouchableOpacity>
+        </View>
       </View>
 
       <Btn
         onPress={() => {
-          navigation.push('verification_1');
+          navigation.push('home');
         }}
-        text="Save"
+        text="Verify"
         style={{marginVertical: 20, marginBottom: height * 0.1}}
       />
     </View>
   );
 };
 
-export default UserDetails;
+export default PhoneVerification;
