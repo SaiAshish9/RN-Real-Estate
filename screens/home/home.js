@@ -1,5 +1,5 @@
-import React from 'react';
-import {View, Dimensions, Image} from 'react-native';
+import React, {useState} from 'react';
+import {View, Dimensions, Image, Text, TouchableOpacity} from 'react-native';
 import Banner from '../../assets/images/home_banner.png';
 import Img1 from '../../assets/images/home_icon1.png';
 import Img2 from '../../assets/images/home_icon2.png';
@@ -7,6 +7,7 @@ import Img3 from '../../assets/images/home_icon3.png';
 import Img4 from '../../assets/images/home_icon4.png';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styled from 'styled-components';
+import Search from '../../components/search';
 
 const {width, height} = Dimensions.get('window');
 
@@ -44,12 +45,23 @@ const Circle = styled.View`
   justify-content: center;
 `;
 
+const Options = styled.View`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f8f8;
+  border-radius: 10px;
+`;
+
 const Home = () => {
+  const [selected, setSelected] = useState(1);
+
   return (
     <View style={{height, width, backgroundColor: '#f6f6f8'}}>
       <View
         style={{
-          height: height * 0.165,
+          // height: height * 0.165,
           backgroundColor: '#fff',
           borderBottomLeftRadius: 20,
           borderBottomRightRadius: 20,
@@ -57,7 +69,66 @@ const Home = () => {
           paddingHorizontal: width * 0.07,
           paddingTop: height * 0.05,
         }}>
-        <Txt style={{fontSize: 16, color: '#333'}}>Home</Txt>
+        <View
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}>
+          <Txt style={{fontSize: 16, color: '#333'}}>Home</Txt>
+          <Options
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'space-around',
+              alignItems: 'center',
+            }}>
+            <TouchableOpacity
+              onPress={() => {
+                setSelected(0);
+              }}
+              style={{
+                height: '100%',
+                borderColor: selected === 0 ? '#5e7aeb' : 'none',
+                borderRadius: 10,
+                paddingHorizontal: 10,
+                paddingVertical: 5,
+                borderWidth: selected === 0 ? 2 : 0,
+              }}>
+              <Text
+                style={{
+                  fontSize: 12,
+                  fontWeight: 'bold',
+                  color: selected === 0 ? '#5e7aeb' : '#a9aaac',
+                }}>
+                Rent
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                setSelected(1);
+              }}
+              style={{
+                height: '100%',
+                borderColor: selected === 1 ? '#5e7aeb' : 'none',
+                borderWidth: selected === 1 ? 2 : 0,
+                borderRadius: 10,
+                paddingHorizontal: 10,
+                paddingVertical: 5,
+              }}>
+              <Text
+                style={{
+                  fontSize: 12,
+                  fontWeight: 'bold',
+                  color: selected === 1 ? '#5e7aeb' : '#a9aaac',
+                }}>
+                Buy
+              </Text>
+            </TouchableOpacity>
+          </Options>
+        </View>
+        <Search />
       </View>
       <View
         style={{
@@ -109,6 +180,7 @@ const Home = () => {
           display: 'flex',
           flexDirection: 'row',
           paddingLeft: 10,
+          elevation: 1,
           // justifyContent:'space-around',
           alignItems: 'center',
         }}>
